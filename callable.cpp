@@ -62,14 +62,14 @@ int main() {
 
     Boo instance;
 
-    Callable< void (const int ) > callableWithMethod Pointer( &Boo::Moo, instance ); callableWithMethodPointer<int>( 89 );
+    Callable< void (const int ) > callableWithMethodPointer( &Boo::Moo, instance ); 
+    callableWithMethodPointer( 89 );
 
     Callable< void () > callableWithFunctor( instance ); 
     callableWithFunctor();
 
-    Callable< int (const int ) > callableWithLambdaExpression( [] const int vv) { return ( vv + 34 ); } );
+    Callable< int (const int ) > callableWithLambdaExpression([](const int vv) { return (vv + 34); });
 
-    int returnValue_1 = callableWithLambdaExpression<const int >(45);
+    int returnValue_1 = callableWithLambdaExpression(45);
 
 }
-
